@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,11 +71,78 @@
     <Compile Include="AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bd_connection.cs" />
+    <Compile Include="Country.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCountry.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductIntake.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductIntakeProduct.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductOrder.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="ShowWindow.xaml.cs">
       <DependentUpon>ShowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusIntake.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatusOrder.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Worker.cs">
+      <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +163,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="ModelShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelShop.edmx.diagram">
+      <DependentUpon>ModelShop.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +192,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelShop.Context.cs</LastGenOutput>
+      <DependentUpon>ModelShop.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelShop.edmx</DependentUpon>
+      <LastGenOutput>ModelShop.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

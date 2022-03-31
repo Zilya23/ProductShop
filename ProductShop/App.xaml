@@ -6,9 +6,16 @@
     <Application.Resources>
         <Style TargetType="TextBlock" >
             <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Foreground" Value="#AD7261"/>
+            <Setter Property="FontSize" Value="25"/>
         </Style>
         <Style TargetType="Grid" >
             <Setter Property="Background" Value="#FFCFC2"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="#FF553026"/>
+            <Setter Property="Background" Value="#FAB7A4"/>
+            <Setter Property="BorderBrush" Value="#AD7261"/>
         </Style>
     </Application.Resources>
 </Application>
