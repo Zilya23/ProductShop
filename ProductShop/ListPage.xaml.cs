@@ -38,6 +38,10 @@ namespace ProductShop
                 prod.SelectedItem = null;
                 prod.ItemsSource = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
             }
+            else
+            {
+                this.DataContext = this;
+            }
         }
     }
 }
