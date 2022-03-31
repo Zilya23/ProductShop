@@ -9,6 +9,57 @@
       Title="ListPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7">
+            <ListView.View>
+                <GridView>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">ID</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">Название</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Description}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">Описание</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=AddDate}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">Описание</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>
+            <!--<GridViewColumn DisplayMemberBinding="{Binding Path=Unit}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">Ед.измерения</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>-->
+            <!--<GridViewColumn DisplayMemberBinding="{Binding Path=Country}">
+                <GridViewColumn.Header>
+                    <GridViewColumnHeader Tag="Name">Страна</GridViewColumnHeader>
+                </GridViewColumn.Header>
+            </GridViewColumn>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

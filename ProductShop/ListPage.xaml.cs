@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace ProductShop
 {
@@ -20,9 +21,14 @@ namespace ProductShop
     /// </summary>
     public partial class ListPage : Page
     {
+        public static ObservableCollection<Product> products { get; set; }
         public ListPage()
         {
+            products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
             InitializeComponent();
+
+            var Prod = new Product();
+            this.DataContext = this;
         }
     }
 }
