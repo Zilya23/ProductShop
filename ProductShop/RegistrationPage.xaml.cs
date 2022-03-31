@@ -34,39 +34,101 @@ namespace ProductShop
 
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
         {
-            int role = 3;
-            var new_user = new User();
-            var new_client = new Client();
+            if(CorrectPass())
+            {
+                int role = 3;
+                var new_user = new User();
+                var new_client = new Client();
 
-            new_user.Login = tb_login.Text;
-            new_user.Password = tb_password.Text;
-            new_user.RoleId = role;
-            bd_connection.connection.User.Add(new_user);
-            bd_connection.connection.SaveChanges();
+                new_user.Login = tb_login.Text;
+                new_user.Password = tb_password.Text;
+                new_user.RoleId = role;
+                bd_connection.connection.User.Add(new_user);
+                bd_connection.connection.SaveChanges();
 
+                users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+
+                new_client.FIO = tb_FIO.Text;
+
+                if (cb_gender.Text == "Мужской")
+                {
+                    new_client.GenderId = 1;
+                }
+                else if (cb_gender.Text == "Женский")
+                {
+                    new_client.GenderId = 2;
+                }
+
+                new_client.NumberPhone = tb_phone.Text;
+                new_client.Email = tb_email.Text;
+                new_client.AddDate = DateTime.Now;
+                new_client.UserId = users.Last().Id;
+
+                bd_connection.connection.Client.Add(new_client);
+                bd_connection.connection.SaveChanges();
+
+                MessageBox.Show("All OK");
+                NavigationService.GoBack();
+            }
+        }
+
+        public bool CorrectPass()
+        {
             users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
-
-            new_client.FIO = tb_FIO.Text;
-
-            if (cb_gender.Text == "Мужской")
+            bool login_unic = true;
+            foreach (var i in users)
             {
-                new_client.GenderId = 1;
-            }
-            else if (cb_gender.Text == "Женский")
-            {
-                new_client.GenderId = 2;
+                if(i.Login == tb_login.Text)
+                {
+                    login_unic = false;
+                }
             }
 
-            new_client.NumberPhone = tb_phone.Text;
-            new_client.Email = tb_email.Text;
-            new_client.AddDate = DateTime.Now;
-            new_client.UserId = users.Last().Id;
+            if (login_unic)
+            {
+                string pas = tb_password.Text;
+                bool buk = false;
+                bool cif = false;
+                bool spec = false;
+                foreach (var i in pas)
+                {
+                    if (Char.IsLetter(i))
+                    {
+                        buk = true;
+                    }
+                }
 
-            bd_connection.connection.Client.Add(new_client);
-            bd_connection.connection.SaveChanges();
+                foreach (var i in pas)
+                {
+                    if (Char.IsNumber(i))
+                    {
+                        cif = true;
+                    }
+                }
 
-            MessageBox.Show("All OK");
-            NavigationService.GoBack();
+                foreach (var i in pas)
+                {
+                    if (i == '!' || i == '@' || i == '#' || i == '$' || i == '%' || i == '^')
+                    {
+                        spec = true;
+                    }
+                }
+
+                if (pas.Length > 6 && buk && cif && spec)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Пароль должен содержать буквы, цифры и спец.символы");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Такой логин уже существует, придумайте новый");
+                return false;
+            }
         }
     }
 }

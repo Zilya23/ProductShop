@@ -42,7 +42,7 @@ namespace ProductShop
             }
             else
             {
-                MessageBox.Show("Логин или пароль неверный", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
