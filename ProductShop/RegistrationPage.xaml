@@ -46,7 +46,7 @@
             <TextBlock Text="Женский"/>
         </ComboBox>
 
-        <Button x:Name="btn_Ok" Content="Зарегистрироваться" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8"/>
+        <Button x:Name="btn_Ok" Content="Зарегистрироваться" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Click="btn_Ok_Click"/>
         <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btn_back_Click"/>
     </Grid>
 </Page>

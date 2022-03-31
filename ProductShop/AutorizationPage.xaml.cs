@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace ProductShop
 {
@@ -20,6 +21,7 @@ namespace ProductShop
     /// </summary>
     public partial class AutorizationPage : Page
     {
+        public static ObservableCollection<User> users { get; set; }
         public AutorizationPage()
         {
             InitializeComponent();
@@ -28,6 +30,20 @@ namespace ProductShop
         private void btn_reg_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new RegistrationPage());
+        }
+
+        private void btn_authorization_Click(object sender, RoutedEventArgs e)
+        {
+            users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+            var z = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Text).FirstOrDefault();
+            if (z != null)
+            {
+                NavigationService.Navigate(new ListPage());
+            }
+            else
+            {
+                MessageBox.Show("Логин или пароль неверный", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
