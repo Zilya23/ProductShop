@@ -30,5 +30,14 @@ namespace ProductShop
             var Prod = new Product();
             this.DataContext = this;
         }
+
+        private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (tb_search.Text != "")
+            {
+                prod.SelectedItem = null;
+                prod.ItemsSource = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
+            }
+        }
     }
 }
