@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProductShop
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ShowWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ShowWindow : Window
     {
-        public MainWindow()
+        public ShowWindow()
         {
             InitializeComponent();
+            frame_auto_reg.NavigationService.Navigate(new AutorizationPage());
         }
     }
 }
