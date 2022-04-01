@@ -25,6 +25,7 @@ namespace ProductShop
         public AutorizationPage()
         {
             InitializeComponent();
+            tb_login.Text = Properties.Settings.Default.Login;
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -38,6 +39,16 @@ namespace ProductShop
             var z = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Text).FirstOrDefault();
             if (z != null)
             {
+                if(cb_save.IsChecked.GetValueOrDefault())
+                {
+                    Properties.Settings.Default.Login = tb_login.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.Login = null;
+                    Properties.Settings.Default.Save();
+                }
                 NavigationService.Navigate(new ListPage());
             }
             else
