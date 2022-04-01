@@ -201,6 +201,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\logo.jpg" />
     <Content Include="ModelShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelShop.Context.cs</LastGenOutput>
@@ -215,5 +216,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

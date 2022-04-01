@@ -25,7 +25,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <Image Source="/img/logo.jpg" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+
         <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image></Image>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             <ListView.View>
                 <GridView>
             <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">
