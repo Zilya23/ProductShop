@@ -39,21 +39,21 @@
         <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="2"/>
         <TextBox x:Name="tb_description" Grid.Column="1" Grid.Row="3"/>
 
-        <ComboBox Name="cb_unit" Grid.Column="1" Grid.Row="4">
-            <TextBlock Text="кг"/>
-            <TextBlock Text="шт"/>
-            <TextBlock Text="л"/>
-        </ComboBox>
+        <StackPanel x:Name="sp_unit" Grid.Column="1" Grid.Row="4" Margin="5">
+            <RadioButton x:Name="rb_kg" GroupName="unit" Content="кг"/>
+            <RadioButton x:Name="rb_st" GroupName="unit" Content="шт"/>
+            <RadioButton x:Name="rb_l" GroupName="unit" Content="л"/>
+        </StackPanel>
 
-        <ComboBox Name="cb_country" Grid.Column="1" Grid.Row="5">
-            <TextBlock Text="Россия"/>
-            <TextBlock Text="Китай"/>
-            <TextBlock Text="Алжир"/>
-            <TextBlock Text="Индия"/>
-            <TextBlock Text="Норвегия"/>
-            <TextBlock Text="Мексика"/>
-            <TextBlock Text="Австралия"/>
-        </ComboBox>
+        <StackPanel x:Name="sp_country" Grid.Column="1" Grid.Row="5" Grid.RowSpan="6">
+            <CheckBox x:Name="cb_rus" Content="Россия"/>
+            <CheckBox x:Name="cb_chi" Content="Китай"/>
+            <CheckBox x:Name="cb_alz" Content="Алжир"/>
+            <CheckBox x:Name="cb_hin" Content="Индия"/>
+            <CheckBox x:Name="cb_nor" Content="Норвегия"/>
+            <CheckBox x:Name="cb_mex" Content="Мексика"/>
+            <CheckBox x:Name="cb_aus" Content="Австралия"/>
+        </StackPanel>
 
         <Image Source="{Binding Product.Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
         <Button x:Name="btn_newphoto" Content="Изменить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200"/>

@@ -27,6 +27,19 @@ namespace ProductShop
             tb_id.Text = n.Id.ToString();
             tb_name.Text = n.Name;
             tb_description.Text = n.Description;
+
+            if(n.UnitId == 1)
+            {
+                rb_kg.IsChecked = true;
+            }
+            else if(n.UnitId == 2)
+            {
+                rb_st.IsChecked = true;
+            }
+            else if(n.UnitId == 3)
+            {
+                rb_l.IsChecked = true;
+            }
         }
 
         private void btn_back_Click(object sender, RoutedEventArgs e)
