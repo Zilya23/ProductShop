@@ -130,5 +130,13 @@ namespace ProductShop
                 return false;
             }
         }
+
+        private void tb_phone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
