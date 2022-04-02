@@ -43,5 +43,12 @@ namespace ProductShop
                 this.DataContext = this;
             }
         }
+
+        private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var n = (sender as ListView).SelectedItem as Product;
+
+            NavigationService.Navigate(new RedactionPage(n));
+        }
     }
 }
