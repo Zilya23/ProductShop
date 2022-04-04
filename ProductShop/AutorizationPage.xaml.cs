@@ -49,7 +49,8 @@ namespace ProductShop
                     Properties.Settings.Default.Login = null;
                     Properties.Settings.Default.Save();
                 }
-                NavigationService.Navigate(new ListPage());
+
+                NavigationService.Navigate(new ListPage(z));
             }
             else
             {

@@ -22,13 +22,20 @@ namespace ProductShop
     public partial class ListPage : Page
     {
         public static ObservableCollection<Product> products { get; set; }
-        public ListPage()
+        public User user;
+        public ListPage(User z)
         {
             products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
             InitializeComponent();
 
             var Prod = new Product();
+            user = z;
             this.DataContext = this;
+
+            if (z.RoleId == 3)
+            {
+                btn_add.Visibility = Visibility.Hidden;
+            }
         }
 
         private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
@@ -46,9 +53,12 @@ namespace ProductShop
 
         private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var n = (sender as ListView).SelectedItem as Product;
+            if(user.RoleId != 3)
+            {
+                var n = (sender as ListView).SelectedItem as Product;
 
-            NavigationService.Navigate(new RedactionPage(n));
+                NavigationService.Navigate(new RedactionPage(n));
+            }
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)

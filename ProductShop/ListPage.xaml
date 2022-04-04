@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Image Source="/img/logo.jpg" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
-        <Button x:Name="btn_add" Content="+" Grid.Column="4" Grid.Row="0" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btn_add_Click"/>
+        <Button x:Name="btn_add" Content="+" Grid.Column="4" Grid.Row="0" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Click="btn_add_Click"/>
 
         <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" SelectionChanged="prod_SelectionChanged">
             <ListView.View>
