@@ -22,7 +22,7 @@ namespace ProductShop
     public partial class ListPage : Page
     {
         public static ObservableCollection<Product> products { get; set; }
-        public User user;
+        public static User user;
         public ListPage(User z)
         {
             products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
