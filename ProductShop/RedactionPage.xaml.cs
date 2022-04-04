@@ -51,5 +51,13 @@ namespace ProductShop
         {
             MessageBox.Show("Вы действительнохотите удалить?");
         }
+
+        private void tb_name_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0) && e.Text != "-")
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
