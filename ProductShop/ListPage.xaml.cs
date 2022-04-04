@@ -50,5 +50,10 @@ namespace ProductShop
 
             NavigationService.Navigate(new RedactionPage(n));
         }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPage());
+        }
     }
 }

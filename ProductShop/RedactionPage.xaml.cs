@@ -46,5 +46,10 @@ namespace ProductShop
         {
             NavigationService.GoBack();
         }
+
+        private void btn_delite_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы действительнохотите удалить?");
+        }
     }
 }
