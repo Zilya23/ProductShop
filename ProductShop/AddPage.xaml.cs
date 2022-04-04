@@ -29,5 +29,17 @@ namespace ProductShop
         {
             NavigationService.GoBack();
         }
+
+        private void tb_name_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsPunctuation(e.Text, 0))
+            {
+                e.Handled = false;
+            }
+        }
     }
 }
