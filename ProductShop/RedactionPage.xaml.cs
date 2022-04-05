@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +22,16 @@ namespace ProductShop
     /// </summary>
     public partial class RedactionPage : Page
     {
+        public static Product constProd;
         public RedactionPage(Product n)
         {
             InitializeComponent();
-
+            constProd = n;
+            this.DataContext = constProd;
             tb_id.Text = n.Id.ToString();
             tb_name.Text = n.Name;
             tb_description.Text = n.Description;
+           
 
             if(n.UnitId == 1)
             {
@@ -58,6 +63,26 @@ namespace ProductShop
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_newphoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                constProd.Photo = File.ReadAllBytes(openFile.FileName);
+                img_prod.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
+        }
+
+        private void btn_save_Click(object sender, RoutedEventArgs e)
+        {
+            constProd.AddDate = DateTime.Now;
+            bd_connection.connection.SaveChanges();
+            NavigationService.Navigate(new ListPage(ListPage.user));
         }
     }
 }

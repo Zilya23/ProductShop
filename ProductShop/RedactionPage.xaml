@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_back_Click"/>
-        <Button x:Name="btn_save" Content="Сохранить" Grid.Column="3" Grid.Row="0" Height="60" Width="200" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button x:Name="btn_save" Content="Сохранить" Grid.Column="3" Grid.Row="0" Height="60" Width="200" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btn_save_Click"/>
         <Button x:Name="btn_delite" Content="Удалить" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="60" Width="200" Click="btn_delite_Click"/>
 
         <TextBlock Text="ID" Grid.Column="0" Grid.Row="1"/>
@@ -56,8 +56,8 @@
             <CheckBox x:Name="cb_aus" Content="Австралия"/>
         </StackPanel>
 
-        <Image Source="{Binding Product.Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
-        <Button x:Name="btn_newphoto" Content="Изменить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200"/>
+        <Image x:Name="img_prod" Source="{Binding Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
+        <Button x:Name="btn_newphoto" Content="Изменить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200" Click="btn_newphoto_Click"/>
 
     </Grid>
 </Page>
