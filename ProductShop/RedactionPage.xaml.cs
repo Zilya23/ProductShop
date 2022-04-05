@@ -54,7 +54,7 @@ namespace ProductShop
 
         private void btn_delite_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Вы действительнохотите удалить?");
+            MessageBox.Show("Вы действительно хотите удалить?");
         }
 
         private void tb_name_PreviewTextInput(object sender, TextCompositionEventArgs e)
