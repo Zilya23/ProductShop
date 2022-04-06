@@ -22,6 +22,7 @@ namespace ProductShop
     public partial class ListPage : Page
     {
         public static ObservableCollection<Product> products { get; set; }
+        public static ObservableCollection<Unit> units { get; set; }
         public static User user;
         public ListPage(User z)
         {
@@ -32,15 +33,16 @@ namespace ProductShop
             user = z;
             this.DataContext = this;
 
+            var allUnit = new ObservableCollection<Unit>(bd_connection.connection.Unit.ToList());
+            allUnit.Insert(0, new Unit() { Id = -1, Name = "Все" });
+
+            cb_unit.ItemsSource = allUnit;
+            cb_unit.DisplayMemberPath = "Name";
+
             if (z.RoleId == 3)
             {
                 btn_add.Visibility = Visibility.Hidden;
             }
-        }
-
-        private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            Filter();
         }
 
         private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,13 +62,29 @@ namespace ProductShop
 
         public void Filter()
         {
+            var filt = (IEnumerable<Product>)bd_connection.connection.Product.ToList();
             var filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
             if (tb_search.Text != "")
             {
                 filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
             }
-            
+
+            if(cb_unit.SelectedIndex > 0)
+            {
+                filterProd = (ObservableCollection<Product>)filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as Unit).Id || c.UnitId == -1);
+            }
+
             prod.ItemsSource = filterProd;
+        }
+
+        private void cb_unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            Filter();
         }
     }
 }
