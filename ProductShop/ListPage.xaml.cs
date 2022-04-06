@@ -78,16 +78,16 @@ namespace ProductShop
             {
                 filterProd = filterProd.OrderBy(c => c.Name);
             }
-            else
+            else if(cb_alf.SelectedIndex == 2)
             {
                 filterProd = filterProd.OrderByDescending(c => c.Name);
             }
 
-            if (cb_date.SelectedIndex == 0)
+            if (cb_date.SelectedIndex == 1)
             {
                 filterProd = filterProd.OrderBy(c => c.AddDate);
             }
-            else if(cb_date.SelectedIndex == 1)
+            else if(cb_date.SelectedIndex == 2)
             {
                 filterProd = filterProd.OrderByDescending(c => c.AddDate);
             }
