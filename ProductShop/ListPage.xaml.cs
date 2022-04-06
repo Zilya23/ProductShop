@@ -92,6 +92,12 @@ namespace ProductShop
                 filterProd = filterProd.OrderByDescending(c => c.AddDate);
             }
 
+            if (cb_mounth.IsChecked.GetValueOrDefault())
+            {
+                var date = DateTime.Now.Month;
+                filterProd = filterProd.Where(c => c.AddDate.Month == date);
+            }
+
             prod.ItemsSource = filterProd;
         }
 
@@ -101,6 +107,11 @@ namespace ProductShop
         }
 
         private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void cb_mounth_Click(object sender, RoutedEventArgs e)
         {
             Filter();
         }
