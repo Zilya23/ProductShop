@@ -83,6 +83,15 @@ namespace ProductShop
                 filterProd = filterProd.OrderByDescending(c => c.Name);
             }
 
+            if (cb_date.SelectedIndex == 1)
+            {
+                filterProd = filterProd.OrderBy(c => c.AddDate);
+            }
+            else
+            {
+                filterProd = filterProd.OrderByDescending(c => c.AddDate);
+            }
+
             prod.ItemsSource = filterProd;
         }
 
