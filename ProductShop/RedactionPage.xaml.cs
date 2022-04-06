@@ -69,7 +69,7 @@ namespace ProductShop
         {
             OpenFileDialog openFile = new OpenFileDialog()
             {
-                Filter = "*.png|*.png|*.jpg|*.jpg"
+                Filter = "*.jpg|*.jpg|*.png|*.png"
             };
             if (openFile.ShowDialog().GetValueOrDefault())
             {
