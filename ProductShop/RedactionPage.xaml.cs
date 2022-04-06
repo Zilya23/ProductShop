@@ -82,7 +82,21 @@ namespace ProductShop
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            constProd.Name = tb_name.Text;
+            constProd.Description = tb_description.Text;
             constProd.AddDate = DateTime.Now;
+            if(rb_kg.IsChecked == true)
+            {
+                constProd.UnitId = 1;
+            }
+            else if(rb_l.IsChecked == true)
+            {
+                constProd.UnitId = 3;
+            }
+            else
+            {
+                constProd.UnitId = 2;
+            }
             bd_connection.connection.SaveChanges();
             NavigationService.Navigate(new ListPage(ListPage.user));
         }
