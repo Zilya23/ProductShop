@@ -74,6 +74,15 @@ namespace ProductShop
                 filterProd = filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as Unit).Id || c.UnitId == -1);
             }
 
+            if (cb_alf.SelectedIndex == 1)
+            {
+                filterProd = filterProd.OrderBy(c => c.Name);
+            }
+            else
+            {
+                filterProd = filterProd.OrderByDescending(c => c.Name);
+            }
+
             prod.ItemsSource = filterProd;
         }
 
