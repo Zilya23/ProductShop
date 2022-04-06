@@ -34,7 +34,7 @@
         <TextBlock Text="Название" Grid.Column="0" Grid.Row="2"/>
         <TextBlock Text="Описание" Grid.Column="0" Grid.Row="3"/>
         <TextBlock Text="Ед.измерения" Grid.Column="0" Grid.Row="4"/>
-        <TextBlock Text="Страна" Grid.Column="0" Grid.Row="5"/>
+        <TextBlock Text="Страны" Grid.Column="0" Grid.Row="5"/>
 
         <TextBlock x:Name="tb_id" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="2" PreviewTextInput="tb_name_PreviewTextInput"/>
@@ -47,13 +47,16 @@
         </StackPanel>
 
         <StackPanel x:Name="sp_country" Grid.Column="1" Grid.Row="5" Grid.RowSpan="6">
-            <CheckBox x:Name="cb_rus" Content="Россия"/>
-            <CheckBox x:Name="cb_chi" Content="Китай"/>
-            <CheckBox x:Name="cb_alz" Content="Алжир"/>
-            <CheckBox x:Name="cb_hin" Content="Индия"/>
-            <CheckBox x:Name="cb_nor" Content="Норвегия"/>
-            <CheckBox x:Name="cb_mex" Content="Мексика"/>
-            <CheckBox x:Name="cb_aus" Content="Австралия"/>
+            <ListView x:Name="lv_country" ItemsSource="{Binding ProductCountry}" Width="150" Height="150">
+                <ListView.ItemTemplate>
+                    <DataTemplate> 
+                        <Label Content="{Binding Country.Name}" Background="{Binding Country.Color}" Height="50"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ComboBox Name="cb_country"/>
+            <Button x:Name="btn_add_country" Content="Добавить страну" Click="btn_add_country_Click"/>
+            <Button x:Name="btn_del_country" Content="Удалить страну" Click="btn_del_country_Click"/>
         </StackPanel>
 
         <Image x:Name="img_prod" Source="{Binding Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>

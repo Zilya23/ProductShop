@@ -31,7 +31,9 @@ namespace ProductShop
             tb_id.Text = n.Id.ToString();
             tb_name.Text = n.Name;
             tb_description.Text = n.Description;
-           
+
+            cb_country.ItemsSource = bd_connection.connection.Country.ToList();
+            cb_country.DisplayMemberPath = "Name";
 
             if(n.UnitId == 1)
             {
@@ -83,6 +85,40 @@ namespace ProductShop
             constProd.AddDate = DateTime.Now;
             bd_connection.connection.SaveChanges();
             NavigationService.Navigate(new ListPage(ListPage.user));
+        }
+
+        private void btn_add_country_Click(object sender, RoutedEventArgs e)
+        {
+            if( cb_country.SelectedIndex >=0)
+            {
+                var countryProd = new ProductCountry();
+                var selectCountry = cb_country.SelectedItem as Country;
+                countryProd.ProductId = constProd.Id;
+                countryProd.CountryId = selectCountry.Id;
+                var isCountry = bd_connection.connection.ProductCountry.Where(a => a.CountryId == selectCountry.Id && a.ProductId == constProd.Id).Count();
+                if(isCountry == 0)
+                {
+                    bd_connection.connection.ProductCountry.Add(countryProd);
+                    bd_connection.connection.SaveChanges();
+                    UpdateCountry();
+                }
+            }
+        }
+
+        public void UpdateCountry()
+        {
+            lv_country.ItemsSource = bd_connection.connection.ProductCountry.Where(a => a.ProductId == constProd.Id).ToList();
+        }
+
+        private void btn_del_country_Click(object sender, RoutedEventArgs e)
+        {
+            if(lv_country.SelectedItem != null)
+            {
+                var selectProdCountry = bd_connection.connection.ProductCountry.ToList().Find(a => a.ProductId == constProd.Id && a.CountryId == (lv_country.SelectedItem as ProductCountry).CountryId);
+                bd_connection.connection.ProductCountry.Remove(selectProdCountry);
+                bd_connection.connection.SaveChanges();
+                UpdateCountry();
+            }
         }
     }
 }
