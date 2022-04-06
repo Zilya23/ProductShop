@@ -40,15 +40,7 @@ namespace ProductShop
 
         private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (tb_search.Text != "")
-            {
-                prod.SelectedItem = null;
-                prod.ItemsSource = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
-            }
-            else
-            {
-                this.DataContext = this;
-            }
+            Filter();
         }
 
         private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,6 +56,17 @@ namespace ProductShop
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPage());
+        }
+
+        public void Filter()
+        {
+            var filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
+            if (tb_search.Text != "")
+            {
+                filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
+            }
+            
+            prod.ItemsSource = filterProd;
         }
     }
 }
