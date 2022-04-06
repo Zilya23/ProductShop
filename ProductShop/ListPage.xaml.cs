@@ -62,16 +62,16 @@ namespace ProductShop
 
         public void Filter()
         {
-            var filt = (IEnumerable<Product>)bd_connection.connection.Product.ToList();
-            var filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
+            var filterProd = (IEnumerable<Product>)bd_connection.connection.Product.ToList();
+
             if (tb_search.Text != "")
             {
-                filterProd = new ObservableCollection<Product>(bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text))).ToList());
+                filterProd = bd_connection.connection.Product.Where(z => (z.Name.Contains(tb_search.Text) || z.Description.Contains(tb_search.Text)));
             }
 
             if(cb_unit.SelectedIndex > 0)
             {
-                filterProd = (ObservableCollection<Product>)filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as Unit).Id || c.UnitId == -1);
+                filterProd = filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as Unit).Id || c.UnitId == -1);
             }
 
             prod.ItemsSource = filterProd;
