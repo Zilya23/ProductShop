@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace ProductShop
     /// </summary>
     public partial class AddPage : Page
     {
+        public static ObservableCollection<Product> products { get; set; }
         public AddPage()
         {
             InitializeComponent();
@@ -36,6 +38,31 @@ namespace ProductShop
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_save_Click(object sender, RoutedEventArgs e)
+        {
+            Product new_product = new Product();
+            new_product.Name = tb_name.Text;
+            new_product.Description = tb_description.Text;
+            new_product.AddDate = DateTime.Now;
+            if (rb_kg.IsChecked == true)
+            {
+                new_product.UnitId = 1;
+            }
+            else if (rb_l.IsChecked == true)
+            {
+                new_product.UnitId = 3;
+            }
+            else
+            {
+                new_product.UnitId = 2;
+            }
+
+            bd_connection.connection.Product.Add(new_product);
+            bd_connection.connection.SaveChanges();
+            products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
+            NavigationService.Navigate(new RedactionPage(products.Last()));
         }
     }
 }
