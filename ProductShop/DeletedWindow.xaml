@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProductShop"
         mc:Ignorable="d"
-        Title="DeletedWindow" Height="300" Width="550">
+        Title="DeletedWindow" Height="200" Width="550">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Вы действительно хотите удалить продукт?" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Button x:Name="btn_OK" Content="Да" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Click="btn_OK_Click"/>
-        <Button x:Name="btn_No" Content="Нет" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Click="btn_No_Click"/>
+        <Button x:Name="btn_OK" Content="Да" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Click="btn_OK_Click" Width="130" Height="30" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_No" Content="Нет" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Click="btn_No_Click" Width="130" Height="30" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

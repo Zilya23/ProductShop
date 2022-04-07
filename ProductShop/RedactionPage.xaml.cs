@@ -60,8 +60,10 @@ namespace ProductShop
 
             if(del.ShowDialog() == true)
             {
-                //constProd.Deleted = true;
+                constProd.Deleted = true;
+                bd_connection.connection.SaveChanges();
             }
+            NavigationService.Navigate(new ListPage(ListPage.user));
         }
 
         private void tb_name_PreviewTextInput(object sender, TextCompositionEventArgs e)
