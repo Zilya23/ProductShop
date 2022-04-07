@@ -56,7 +56,12 @@ namespace ProductShop
 
         private void btn_delite_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Вы действительно хотите удалить?");
+            DeletedWindow del = new DeletedWindow();
+
+            if(del.ShowDialog() == true)
+            {
+                //constProd.Deleted = true;
+            }
         }
 
         private void tb_name_PreviewTextInput(object sender, TextCompositionEventArgs e)
