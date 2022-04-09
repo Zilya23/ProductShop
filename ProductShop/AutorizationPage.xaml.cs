@@ -21,11 +21,17 @@ namespace ProductShop
     /// </summary>
     public partial class AutorizationPage : Page
     {
+        public static int pass_count = 0;
         public static ObservableCollection<User> users { get; set; }
         public AutorizationPage()
         {
             InitializeComponent();
             tb_login.Text = Properties.Settings.Default.Login;
+            tb_password.Visibility = Visibility.Hidden;
+            if (Properties.Settings.Default.Password < DateTime.Now)
+            {
+                tb_password.Visibility = Visibility.Visible;
+            }
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -54,7 +60,14 @@ namespace ProductShop
             }
             else
             {
+                pass_count++;
                 MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (pass_count == 3)
+                {
+                    Properties.Settings.Default.Password = DateTime.Now.AddMinutes(1);
+                    Properties.Settings.Default.Save();
+                    tb_password.Visibility = Visibility.Hidden;
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +24,7 @@ namespace ProductShop
         public static ObservableCollection<Product> products { get; set; }
         public static ObservableCollection<Unit> units { get; set; }
         public static User user;
+        public static int actualPage;
         public ListPage(User z)
         {
             products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
@@ -99,21 +100,73 @@ namespace ProductShop
                 filterProd = filterProd.Where(c => c.AddDate.Month == date);
             }
 
+            int allCount = filterProd.Count();
+
+            if (cb_count.SelectedIndex > 0 && filterProd.Count() > 0)
+            {
+                var cbb = cb_count.SelectedItem as ComboBoxItem;
+                int SelCount = Convert.ToInt32(cbb.Content);
+                filterProd = filterProd.Skip(SelCount * actualPage).Take(SelCount);
+                string count = (SelCount * (actualPage + 1)) + " из " + allCount;
+                tb_count.Text = count;
+
+                if (filterProd.Count() == 0)
+                {
+                    count = allCount + " из " + allCount;
+                    tb_count.Text = count;
+                    actualPage--;
+                    return;
+                }
+                else if(SelCount * (actualPage + 1) > allCount)
+                {
+                    count = allCount + " из " + allCount;
+                    tb_count.Text = count;
+                }
+            }
+
             prod.ItemsSource = filterProd;
         }
 
         private void cb_unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            actualPage = 0;
             Filter();
         }
 
         private void tb_search_SelectionChanged(object sender, RoutedEventArgs e)
         {
+            actualPage = 0;
             Filter();
         }
 
         private void cb_mounth_Click(object sender, RoutedEventArgs e)
         {
+            actualPage = 0;
+            Filter();
+        }
+
+        private void cb_count_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            actualPage = 0;
+            btn_next.Visibility = Visibility.Visible;
+            btn_back_list.Visibility = Visibility.Visible;
+            tb_count.Visibility = Visibility.Visible;
+            Filter();
+        }
+
+        private void btn_back_list_Click(object sender, RoutedEventArgs e)
+        {
+            actualPage--;
+            if(actualPage<0)
+            {
+                actualPage = 0;
+            }
+            Filter();
+        }
+
+        private void btn_next_Click(object sender, RoutedEventArgs e)
+        {
+            actualPage++;
             Filter();
         }
     }

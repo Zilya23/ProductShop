@@ -24,6 +24,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <Image Source="/img/logo.jpg" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
@@ -78,6 +79,18 @@
             <ComboBoxItem Content="От новых к старым"/>
         </ComboBox>
         <CheckBox Name="cb_mounth" Content="В этом месяце" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Click="cb_mounth_Click"/>
+
+        <ComboBox Name="cb_count" Grid.Row="8" Grid.Column="0" Width="70" HorizontalAlignment="Left" SelectionChanged="cb_count_SelectionChanged">
+            <ComboBoxItem Content="Все"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="10"/>
+        </ComboBox>
+
+        <Button x:Name="btn_next" Content="Вперед" Grid.Column="3" Grid.Row="8" Width="100" HorizontalAlignment="Right" Margin="0, 0, 5, 0" Click="btn_next_Click" Visibility="Hidden"/>
+        <Button x:Name="btn_back_list" Content="Назад" Grid.Column="3" Grid.Row="8" Width="100" HorizontalAlignment="Left" Margin="30, 0, 0, 0" Click="btn_back_list_Click" Visibility="Hidden"/>
+        <TextBlock x:Name="tb_count" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" Visibility="Hidden"/>
 
     </Grid>
 </Page>
