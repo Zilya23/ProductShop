@@ -27,8 +27,8 @@ namespace ProductShop
         public static int actualPage;
         public ListPage(User z)
         {
-            products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
             InitializeComponent();
+            products = new ObservableCollection<Product>(bd_connection.connection.Product.Where(a => a.Deleted != true).ToList());
 
             var Prod = new Product();
             user = z;
@@ -63,7 +63,7 @@ namespace ProductShop
 
         public void Filter()
         {
-            var filterProd = (IEnumerable<Product>)bd_connection.connection.Product.ToList();
+            var filterProd = (IEnumerable<Product>)bd_connection.connection.Product.Where(a => a.Deleted != true).ToList();
 
             if (tb_search.Text != "")
             {
