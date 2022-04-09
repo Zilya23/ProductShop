@@ -56,6 +56,7 @@ namespace ProductShop
                     Properties.Settings.Default.Save();
                 }
 
+                pass_count = 0;
                 NavigationService.Navigate(new ListPage(z));
             }
             else
@@ -64,6 +65,7 @@ namespace ProductShop
                 MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
                 if (pass_count == 3)
                 {
+                    pass_count = 0;
                     Properties.Settings.Default.Password = DateTime.Now.AddMinutes(1);
                     Properties.Settings.Default.Save();
                     tb_password.Visibility = Visibility.Hidden;
