@@ -30,36 +30,19 @@
         <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_back_Click"/>
         <Button x:Name="btn_save" Content="Заказать" Grid.Column="3" Grid.Row="0" Height="40" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btn_save_Click"/>
 
-        <ListView x:Name="lv_order" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="7">
-            <ListView.View>
-                <GridView>
-
-                    <GridViewColumn Header="Название">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <ComboBox Name="cb_prod"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        
-        <!--<DataGrid x:Name="dg_order" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="7">
+        <DataGrid x:Name="OrderList" Grid.Row="0" Grid.RowSpan="3"  Grid.ColumnSpan="3">
             <DataGrid.Columns>
-
-                <DataGridTemplateColumn Header="Наименование">
+                <DataGridComboBoxColumn Width="150"   x:Name="ProductTb" >
+                    
+                </DataGridComboBoxColumn>
+                <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox x:Name="cb_prod" />
+                            <TextBox x:Name="CountTb" Height="40" Width="100"></TextBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTextColumn Header="Количество"/>
-                <DataGridTextColumn Header="Цена"/>
             </DataGrid.Columns>
-        </DataGrid>-->
-
+        </DataGrid>
     </Grid>
 </Page>

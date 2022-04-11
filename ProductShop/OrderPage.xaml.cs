@@ -23,8 +23,10 @@ namespace ProductShop
         public OrderPage(DateBasee.User user)
         {
             InitializeComponent();
-
-
+      
+            ProductTb.ItemsSource = bd_connection.connection.Product.ToList();
+            ProductTb.DisplayMemberPath = "Name";
+         
             //cb_prod.ItemsSource = bd_connection.connection.Product.ToList();
             //cb_prod.DisplayMemberPath = "Name";
         }
