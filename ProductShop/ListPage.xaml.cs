@@ -21,21 +21,21 @@ namespace ProductShop
     /// </summary>
     public partial class ListPage : Page
     {
-        public static ObservableCollection<Product> products { get; set; }
-        public static ObservableCollection<Unit> units { get; set; }
-        public static User user;
+        public static ObservableCollection<DateBasee.Product> products { get; set; }
+        public static ObservableCollection<DateBasee.Unit> units { get; set; }
+        public static DateBasee.User user;
         public static int actualPage;
-        public ListPage(User z)
+        public ListPage(DateBasee.User z)
         {
             InitializeComponent();
-            products = new ObservableCollection<Product>(bd_connection.connection.Product.Where(a => a.Deleted != true).ToList());
+            products = new ObservableCollection<DateBasee.Product>(bd_connection.connection.Product.Where(a => a.Deleted != true).ToList());
 
-            var Prod = new Product();
+            var Prod = new DateBasee.Product();
             user = z;
             this.DataContext = this;
 
-            var allUnit = new ObservableCollection<Unit>(bd_connection.connection.Unit.ToList());
-            allUnit.Insert(0, new Unit() { Id = -1, Name = "Все" });
+            var allUnit = new ObservableCollection<DateBasee.Unit>(bd_connection.connection.Unit.ToList());
+            allUnit.Insert(0, new DateBasee.Unit() { Id = -1, Name = "Все" });
 
             cb_unit.ItemsSource = allUnit;
             cb_unit.DisplayMemberPath = "Name";
@@ -50,7 +50,7 @@ namespace ProductShop
         {
             if(user.RoleId != 3)
             {
-                var n = (sender as ListView).SelectedItem as Product;
+                var n = (sender as ListView).SelectedItem as DateBasee.Product;
 
                 NavigationService.Navigate(new RedactionPage(n));
             }
@@ -63,7 +63,7 @@ namespace ProductShop
 
         public void Filter()
         {
-            var filterProd = (IEnumerable<Product>)bd_connection.connection.Product.Where(a => a.Deleted != true).ToList();
+            var filterProd = (IEnumerable<DateBasee.Product>)bd_connection.connection.Product.Where(a => a.Deleted != true).ToList();
 
             if (tb_search.Text != "")
             {
@@ -72,7 +72,7 @@ namespace ProductShop
 
             if(cb_unit.SelectedIndex > 0)
             {
-                filterProd = filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as Unit).Id || c.UnitId == -1);
+                filterProd = filterProd.Where(c => c.UnitId == (cb_unit.SelectedItem as DateBasee.Unit).Id || c.UnitId == -1);
             }
 
             if (cb_alf.SelectedIndex == 1)
@@ -168,6 +168,11 @@ namespace ProductShop
         {
             actualPage++;
             Filter();
+        }
+
+        private void btn_order_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrderPage(user));
         }
     }
 }

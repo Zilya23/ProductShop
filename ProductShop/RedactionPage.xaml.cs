@@ -22,8 +22,8 @@ namespace ProductShop
     /// </summary>
     public partial class RedactionPage : Page
     {
-        public static Product constProd;
-        public RedactionPage(Product n)
+        public static DateBasee.Product constProd;
+        public RedactionPage(DateBasee.Product n)
         {
             InitializeComponent();
             constProd = n;
@@ -112,8 +112,8 @@ namespace ProductShop
         {
             if( cb_country.SelectedIndex >=0)
             {
-                var countryProd = new ProductCountry();
-                var selectCountry = cb_country.SelectedItem as Country;
+                var countryProd = new DateBasee.ProductCountry();
+                var selectCountry = cb_country.SelectedItem as DateBasee.Country;
                 countryProd.ProductId = constProd.Id;
                 countryProd.CountryId = selectCountry.Id;
                 var isCountry = bd_connection.connection.ProductCountry.Where(a => a.CountryId == selectCountry.Id && a.ProductId == constProd.Id).Count();
@@ -135,7 +135,7 @@ namespace ProductShop
         {
             if(lv_country.SelectedItem != null)
             {
-                var selectProdCountry = bd_connection.connection.ProductCountry.ToList().Find(a => a.ProductId == constProd.Id && a.CountryId == (lv_country.SelectedItem as ProductCountry).CountryId);
+                var selectProdCountry = bd_connection.connection.ProductCountry.ToList().Find(a => a.ProductId == constProd.Id && a.CountryId == (lv_country.SelectedItem as DateBasee.ProductCountry).CountryId);
                 bd_connection.connection.ProductCountry.Remove(selectProdCountry);
                 bd_connection.connection.SaveChanges();
                 UpdateCountry();

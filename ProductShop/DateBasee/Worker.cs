@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.DateBasee
 {
     using System;
     using System.Collections.Generic;

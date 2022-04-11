@@ -7,23 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.DateBasee
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class StatusIntake
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StatusIntake()
+        public User()
         {
-            this.ProductIntakeProduct = new HashSet<ProductIntakeProduct>();
+            this.Client = new HashSet<Client>();
+            this.Worker = new HashSet<Worker>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public int RoleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductIntakeProduct> ProductIntakeProduct { get; set; }
+        public virtual ICollection<Client> Client { get; set; }
+        public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worker> Worker { get; set; }
     }
 }

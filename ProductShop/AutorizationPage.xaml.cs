@@ -22,7 +22,7 @@ namespace ProductShop
     public partial class AutorizationPage : Page
     {
         public static int pass_count = 0;
-        public static ObservableCollection<User> users { get; set; }
+        public static ObservableCollection<DateBasee.User> users { get; set; }
         public AutorizationPage()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace ProductShop
 
         private void btn_authorization_Click(object sender, RoutedEventArgs e)
         {
-            users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+            users = new ObservableCollection<DateBasee.User>(bd_connection.connection.User.ToList());
             var z = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Text).FirstOrDefault();
             if (z != null)
             {

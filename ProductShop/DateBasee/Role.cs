@@ -7,24 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.DateBasee
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Country
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Country()
+        public Role()
         {
-            this.ProductCountry = new HashSet<ProductCountry>();
+            this.User = new HashSet<User>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Color { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductCountry> ProductCountry { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

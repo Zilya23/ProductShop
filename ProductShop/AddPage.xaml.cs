@@ -21,7 +21,7 @@ namespace ProductShop
     /// </summary>
     public partial class AddPage : Page
     {
-        public static ObservableCollection<Product> products { get; set; }
+        public static ObservableCollection<DateBasee.Product> products { get; set; }
         public AddPage()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace ProductShop
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
-            Product new_product = new Product();
+            DateBasee.Product new_product = new DateBasee.Product();
             new_product.Name = tb_name.Text;
             new_product.Description = tb_description.Text;
             new_product.AddDate = DateTime.Now;
@@ -61,7 +61,7 @@ namespace ProductShop
 
             bd_connection.connection.Product.Add(new_product);
             bd_connection.connection.SaveChanges();
-            products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
+            products = new ObservableCollection<DateBasee.Product>(bd_connection.connection.Product.ToList());
             NavigationService.Navigate(new RedactionPage(products.Last()));
         }
     }

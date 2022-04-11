@@ -7,17 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.DateBasee
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Country
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Country()
+        {
+            this.ProductCountry = new HashSet<ProductCountry>();
+        }
+    
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Color { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductCountry> ProductCountry { get; set; }
     }
 }

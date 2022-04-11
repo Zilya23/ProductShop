@@ -21,7 +21,7 @@ namespace ProductShop
     /// </summary>
     public partial class RegistrationPage : Page
     {
-        public static ObservableCollection<User> users { get; set; }
+        public static ObservableCollection<DateBasee.User> users { get; set; }
         public RegistrationPage()
         {
             InitializeComponent();
@@ -37,8 +37,8 @@ namespace ProductShop
             if(CorrectPass())
             {
                 int role = 3;
-                var new_user = new User();
-                var new_client = new Client();
+                var new_user = new DateBasee.User();
+                var new_client = new DateBasee.Client();
 
                 new_user.Login = tb_login.Text;
                 new_user.Password = tb_password.Text;
@@ -46,7 +46,7 @@ namespace ProductShop
                 bd_connection.connection.User.Add(new_user);
                 bd_connection.connection.SaveChanges();
 
-                users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+                users = new ObservableCollection<DateBasee.User>(bd_connection.connection.User.ToList());
 
                 new_client.FIO = tb_FIO.Text;
 
@@ -74,7 +74,7 @@ namespace ProductShop
 
         public bool CorrectPass()
         {
-            users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+            users = new ObservableCollection<DateBasee.User>(bd_connection.connection.User.ToList());
             bool login_unic = true;
             foreach (var i in users)
             {

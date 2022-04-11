@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.DateBasee
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductIntakeProduct
+    public partial class Supplier
     {
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int ProductIntakeId { get; set; }
-        public int Count { get; set; }
-        public decimal PriceUnit { get; set; }
-        public int StatusIntakeId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Supplier()
+        {
+            this.ProductIntake = new HashSet<ProductIntake>();
+        }
     
-        public virtual Product Product { get; set; }
-        public virtual ProductIntake ProductIntake { get; set; }
-        public virtual StatusIntake StatusIntake { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductIntake> ProductIntake { get; set; }
     }
 }
