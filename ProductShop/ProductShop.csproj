@@ -74,40 +74,79 @@
     <Compile Include="AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateBasee\Client.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
     <Compile Include="bd_connection.cs" />
+    <Compile Include="DateBasee\Client.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DateBasee\Country.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Gender.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="DateBasee\MyClass\Order.cs" />
+    <Compile Include="DateBasee\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\ProductCountry.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\ProductIntake.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\ProductIntakeProduct.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\ProductOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\StatusIntake.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\StatusOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Supplier.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Unit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DateBasee\Worker.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DeletedWindow.xaml.cs">
       <DependentUpon>DeletedWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateBasee\Gender.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
+    <Compile Include="IntakeRedPage.xaml.cs">
+      <DependentUpon>IntakeRedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ModelShop.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelShop.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ModelShop.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ModelShop.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelShop.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\Order.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
@@ -115,20 +154,8 @@
     <Compile Include="OthetPage.xaml.cs">
       <DependentUpon>OthetPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateBasee\Product.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ProductCountry.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ProductIntake.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ProductIntakeProduct.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\ProductOrder.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
+    <Compile Include="PostupListPage.xaml.cs">
+      <DependentUpon>PostupListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RedactionPage.xaml.cs">
       <DependentUpon>RedactionPage.xaml</DependentUpon>
@@ -136,32 +163,8 @@
     <Compile Include="RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateBasee\Role.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
     <Compile Include="ShowWindow.xaml.cs">
       <DependentUpon>ShowWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\StatusIntake.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\StatusOrder.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\Supplier.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\sysdiagrams.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\Unit.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\User.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DateBasee\Worker.cs">
-      <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -182,12 +185,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DateBasee\ModelShop.edmx">
+    <EntityDeploy Include="DateBasee\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelShop.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DateBasee\ModelShop.edmx.diagram">
-      <DependentUpon>ModelShop.edmx</DependentUpon>
+    <None Include="DateBasee\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -211,6 +214,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="IntakeRedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OthetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostupListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,20 +249,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\logo.jpg" />
-    <Content Include="DateBasee\ModelShop.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelShop.Context.cs</LastGenOutput>
-      <DependentUpon>ModelShop.edmx</DependentUpon>
-    </Content>
-    <Content Include="DateBasee\ModelShop.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelShop.edmx</DependentUpon>
-      <LastGenOutput>ModelShop.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DateBasee\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DateBasee\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

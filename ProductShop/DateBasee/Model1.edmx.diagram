@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bb75d8d3033d470ba429ecbc512dc2a1" Name="Diagram1">
+      <Diagram DiagramId="edcb0d84da944b19bee30597a28051a7" Name="Diagram1">
         <EntityTypeShape EntityType="ShopZilya320Model.Client" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Country" Width="1.5" PointX="7.5" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Gender" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Order" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopZilya320Model.Product" Width="1.5" PointX="7.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopZilya320Model.Product" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.ProductCountry" Width="1.5" PointX="9.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.ProductIntake" Width="1.5" PointX="12" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopZilya320Model.ProductIntakeProduct" Width="1.5" PointX="14.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopZilya320Model.ProductIntakeProduct" Width="1.5" PointX="14.25" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.ProductOrder" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Role" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.StatusIntake" Width="1.5" PointX="12" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.StatusOrder" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Supplier" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopZilya320Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Unit" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.User" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopZilya320Model.Worker" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
@@ -39,6 +38,7 @@
         <AssociationConnector Association="ShopZilya320Model.FK_ProductIntakeProduct_StatusIntake" ManuallyRouted="false" />
         <AssociationConnector Association="ShopZilya320Model.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="ShopZilya320Model.FK_Worker_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopZilya320Model.FK_ProductIntake_StatusIntake" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

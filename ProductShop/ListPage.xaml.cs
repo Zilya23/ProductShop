@@ -174,5 +174,10 @@ namespace ProductShop
         {
             NavigationService.Navigate(new OrderPage(user));
         }
+
+        private void btn_postup_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PostupListPage());
+        }
     }
 }
