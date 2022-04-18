@@ -13,10 +13,10 @@ namespace ProductShop.DateBasee
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ShopZilya320Entities1 : DbContext
+    public partial class ShopZilya320Entities2 : DbContext
     {
-        public ShopZilya320Entities1()
-            : base("name=ShopZilya320Entities1")
+        public ShopZilya320Entities2()
+            : base("name=ShopZilya320Entities2")
         {
         }
     
@@ -38,6 +38,7 @@ namespace ProductShop.DateBasee
         public virtual DbSet<StatusIntake> StatusIntake { get; set; }
         public virtual DbSet<StatusOrder> StatusOrder { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }

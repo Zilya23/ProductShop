@@ -130,6 +130,9 @@
     <Compile Include="DateBasee\Supplier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DateBasee\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DateBasee\Unit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

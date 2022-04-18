@@ -27,11 +27,6 @@ namespace ProductShop
         {
             InitializeComponent();
             tb_login.Text = Properties.Settings.Default.Login;
-            tb_password.Visibility = Visibility.Hidden;
-            if (Properties.Settings.Default.Password < DateTime.Now)
-            {
-                tb_password.Visibility = Visibility.Visible;
-            }
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -43,33 +38,39 @@ namespace ProductShop
         {
             users = new ObservableCollection<DateBasee.User>(bd_connection.connection.User.ToList());
             var z = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Text).FirstOrDefault();
-            if (z != null)
+            if(Properties.Settings.Default.Password < DateTime.Now)
             {
-                if(cb_save.IsChecked.GetValueOrDefault())
+                if (z != null)
                 {
-                    Properties.Settings.Default.Login = tb_login.Text;
-                    Properties.Settings.Default.Save();
+                    if (cb_save.IsChecked.GetValueOrDefault())
+                    {
+                        Properties.Settings.Default.Login = tb_login.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.Login = null;
+                        Properties.Settings.Default.Save();
+                    }
+
+                    pass_count = 0;
+                    NavigationService.Navigate(new ListPage(z));
                 }
                 else
                 {
-                    Properties.Settings.Default.Login = null;
-                    Properties.Settings.Default.Save();
+                    pass_count++;
+                    MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (pass_count == 3)
+                    {
+                        pass_count = 0;
+                        Properties.Settings.Default.Password = DateTime.Now.AddMinutes(1);
+                        Properties.Settings.Default.Save();
+                    }
                 }
-
-                pass_count = 0;
-                NavigationService.Navigate(new ListPage(z));
             }
             else
             {
-                pass_count++;
-                MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
-                if (pass_count == 3)
-                {
-                    pass_count = 0;
-                    Properties.Settings.Default.Password = DateTime.Now.AddMinutes(1);
-                    Properties.Settings.Default.Save();
-                    tb_password.Visibility = Visibility.Hidden;
-                }
+                MessageBox.Show("Вы ввели неверный пароль 3 раза");
             }
         }
     }

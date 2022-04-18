@@ -24,11 +24,6 @@ namespace ProductShop
         {
             InitializeComponent();
       
-            ProductTb.ItemsSource = bd_connection.connection.Product.ToList();
-            ProductTb.DisplayMemberPath = "Name";
-         
-            //cb_prod.ItemsSource = bd_connection.connection.Product.ToList();
-            //cb_prod.DisplayMemberPath = "Name";
         }
 
         private void btn_back_Click(object sender, RoutedEventArgs e)
@@ -37,6 +32,11 @@ namespace ProductShop
         }
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

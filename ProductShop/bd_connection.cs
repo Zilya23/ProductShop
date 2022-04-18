@@ -8,6 +8,6 @@ namespace ProductShop
 {
     class bd_connection
     {
-        public static DateBasee.ShopZilya320Entities1 connection = new DateBasee.ShopZilya320Entities1();
+        public static DateBasee.ShopZilya320Entities2 connection = new DateBasee.ShopZilya320Entities2();
     }
 }
