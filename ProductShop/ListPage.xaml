@@ -29,8 +29,8 @@
 
         <Image Source="/img/logo.jpg" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
         <Button x:Name="btn_add" Content="+" Grid.Column="4" Grid.Row="0" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Visible" Click="btn_add_Click"/>
-        <Button x:Name="btn_othet" Content="Отчеты" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Button x:Name="btn_order" Content="Заказ" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btn_order_Click"/>
+        <!--<Button x:Name="btn_othet" Content="Отчеты" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button x:Name="btn_order" Content="Заказ" Grid.Column="0" Grid.Row="0" Height="40" Width="120" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btn_order_Click"/>-->
         <Button x:Name="btn_postup" Content="Поступление продуктов" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Height="40" VerticalAlignment="Bottom" Click="btn_postup_Click"/>
 
         <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" SelectionChanged="prod_SelectionChanged">

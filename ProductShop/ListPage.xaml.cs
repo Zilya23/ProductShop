@@ -43,12 +43,17 @@ namespace ProductShop
             if (z.RoleId == 3)
             {
                 btn_add.Visibility = Visibility.Hidden;
+                btn_postup.Visibility = Visibility.Hidden;
+            }
+            else if (z.RoleId == 2)
+            {
+                btn_add.Visibility = Visibility.Hidden;
             }
         }
 
         private void prod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(user.RoleId != 3)
+            if(user.RoleId != 3 & user.RoleId != 2)
             {
                 var n = (sender as ListView).SelectedItem as DateBasee.Product;
 

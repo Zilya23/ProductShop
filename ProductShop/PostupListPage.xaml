@@ -28,12 +28,14 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="btn_back" Content="Назад" Grid.Column="0" Grid.Row="0" Height="40" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btn_back_Click"/>
-        <Button x:Name="btn_add" Content="Создать" Grid.Column="3" Grid.Row="0" Height="40" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btn_add_Click"/>
-
+       
         <ListView x:Name="lv_postup" ItemsSource="{Binding intakes}" Grid.Row="1" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="4" SelectionChanged="lv_postup_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Номер договора" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Supplier.Name}"/>
+                    <GridViewColumn Header="Общая сумма" DisplayMemberBinding="{Binding TotalAmount}"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Data}"/>
                     <GridViewColumn Header="Статус договора" DisplayMemberBinding="{Binding StatusIntake.Name}"/>
                 </GridView>
             </ListView.View>

@@ -39,6 +39,7 @@
         <AssociationConnector Association="ShopZilya320Model.FK_ProductIntakeProduct_StatusIntake" ManuallyRouted="false" />
         <AssociationConnector Association="ShopZilya320Model.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="ShopZilya320Model.FK_Worker_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopZilya320Model.FK_ProductIntake_StatusIntake" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
