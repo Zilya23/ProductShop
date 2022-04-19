@@ -71,6 +71,7 @@
           <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
           <Property Name="StatusIntakeId" Type="int" />
+          <Property Name="AllAmount" Type="int" />
         </EntityType>
         <EntityType Name="ProductIntakeProduct">
           <Key>
@@ -82,6 +83,7 @@
           <Property Name="Count" Type="int" Nullable="false" />
           <Property Name="PriceUnit" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="StatusIntakeId" Type="int" Nullable="false" />
+          <Property Name="AllPrice" Type="int" />
         </EntityType>
         <EntityType Name="ProductOrder">
           <Key>
@@ -551,6 +553,7 @@
           <NavigationProperty Name="ProductIntakeProduct" Relationship="Self.FK_ProductIntakeProduct_ProductIntake" FromRole="ProductIntake" ToRole="ProductIntakeProduct" />
           <Property Name="StatusIntakeId" Type="Int32" />
           <NavigationProperty Name="StatusIntake" Relationship="ShopZilya320Model.FK_ProductIntake_StatusIntake" FromRole="ProductIntake" ToRole="StatusIntake" />
+          <Property Name="AllAmount" Type="Int32" />
         </EntityType>
         <EntityType Name="ProductIntakeProduct">
           <Key>
@@ -565,6 +568,7 @@
           <NavigationProperty Name="Product" Relationship="Self.FK_ProductIntakeProduct_Product" FromRole="ProductIntakeProduct" ToRole="Product" />
           <NavigationProperty Name="ProductIntake" Relationship="Self.FK_ProductIntakeProduct_ProductIntake" FromRole="ProductIntakeProduct" ToRole="ProductIntake" />
           <NavigationProperty Name="StatusIntake" Relationship="Self.FK_ProductIntakeProduct_StatusIntake" FromRole="ProductIntakeProduct" ToRole="StatusIntake" />
+          <Property Name="AllPrice" Type="Int32" />
         </EntityType>
         <EntityType Name="ProductOrder">
           <Key>
@@ -1029,6 +1033,7 @@
           <EntitySetMapping Name="ProductIntake">
             <EntityTypeMapping TypeName="ShopZilya320Model.ProductIntake">
               <MappingFragment StoreEntitySet="ProductIntake">
+                <ScalarProperty Name="AllAmount" ColumnName="AllAmount" />
                 <ScalarProperty Name="StatusIntakeId" ColumnName="StatusIntakeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
@@ -1040,6 +1045,7 @@
           <EntitySetMapping Name="ProductIntakeProduct">
             <EntityTypeMapping TypeName="ShopZilya320Model.ProductIntakeProduct">
               <MappingFragment StoreEntitySet="ProductIntakeProduct">
+                <ScalarProperty Name="AllPrice" ColumnName="AllPrice" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="ProductIntakeId" ColumnName="ProductIntakeId" />

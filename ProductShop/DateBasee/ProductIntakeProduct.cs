@@ -20,6 +20,7 @@ namespace ProductShop.DateBasee
         public int Count { get; set; }
         public decimal PriceUnit { get; set; }
         public int StatusIntakeId { get; set; }
+        public Nullable<int> AllPrice { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual ProductIntake ProductIntake { get; set; }

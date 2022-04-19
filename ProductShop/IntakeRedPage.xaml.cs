@@ -22,17 +22,17 @@ namespace ProductShop
     public partial class IntakeRedPage : Page
     {
         public static ObservableCollection<DateBasee.ProductIntakeProduct> intakeProducts { get; set; }
+        
         public IntakeRedPage(DateBasee.ProductIntake intake)
         {
             InitializeComponent();
-
+           
             intakeProducts = new ObservableCollection<DateBasee.ProductIntakeProduct>((bd_connection.connection.ProductIntakeProduct.Where(n => n.ProductIntake.Id == intake.Id)).ToList());
-
-            cb_supplier.SelectedItem = intake.Supplier.Name;
+            lv_productInake.ItemsSource = intakeProducts;
 
             cb_supplier.ItemsSource = bd_connection.connection.Supplier.ToList();
             cb_supplier.DisplayMemberPath = "Name";
-            this.DataContext = this;
+            this.DataContext = intake;
         }
 
         private void btn_back_Click(object sender, RoutedEventArgs e)
